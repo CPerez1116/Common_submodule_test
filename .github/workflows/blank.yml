@@ -37,5 +37,9 @@ jobs:
           git config user.email 'cperez@mistercarwash.com'
           git add --all
           git commit -m "Update Submodules"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
 
+          # Ensure the latest changes from the remote main branch are pulled and merged
+          git pull origin main --rebase
+    
+          # Push the changes to the remote repository
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
