@@ -39,7 +39,7 @@ jobs:
           git commit -m "Update Submodules"
 
           # Ensure the latest changes from the remote main branch are pulled and merged
-          git pull origin main --rebase
+          git pull origin main
     
           # Push the changes to the remote repository
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
